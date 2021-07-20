@@ -1,14 +1,19 @@
 {
     "name": "react-minigraph",
     "version": "0.0.1",
-    "main": "src/index.ts",
+    "main": "docs/index.html",
     "license": "MIT",
+    "homepage": "http://PiTiLeZarD.github.io/react-minigraph",
     "scripts": {
-        "dev": "parcel ./demo/index.html"
+        "dev": "parcel ./demo/index.html",
+        "build": "parcel build ./demo/index.html ",
+        "predeploy": "yarn build",
+        "deploy": "gh-pages -d build"
     },
     "devDependencies": {
         "@types/react": "^17.0.14",
         "@types/react-dom": "^17.0.9",
+        "gh-pages": "^3.2.3",
         "parcel": "^2.0.0-beta.3.1",
         "react": "^17.0.2",
         "react-dom": "^17.0.2"
