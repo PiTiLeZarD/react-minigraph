@@ -23,5 +23,4 @@ yarn install
 yarn dev
 ```
 
-And you'll have the available graphs
-![Screenshot](/screenshot.png)
+And you'll have [the available graphs](https://pitilezard.github.io/react-minigraph/)
