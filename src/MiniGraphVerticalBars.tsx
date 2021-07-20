@@ -1,7 +1,7 @@
 import React from "react";
 
 import MiniGraphContext from "./MiniGraphContext";
-import { Point } from "./utils/types";
+import { Point } from "./types";
 import { pointsInContext } from "./utils/dataTransform";
 
 export type MiniGraphVerticalBarsProps = {

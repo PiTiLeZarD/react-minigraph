@@ -1,5 +1,5 @@
 import { pointsToData } from "./dataTransform";
-import { Point } from "./types";
+import { Point } from "../types";
 
 const avg = (data: number[]): number => data.reduce((acc: number, curr: number) => acc + curr, 0) / data.length;
 const avgPoints = (points: Point[]): number => avg(pointsToData(points));

@@ -1,5 +1,5 @@
 import MiniGraphContext, { MiniGraphContextType } from "../MiniGraphContext";
-import { Point } from "./types";
+import { Point } from "../types";
 import { default as findMaxY } from "./maxY";
 
 const dataToPoints = (data: number[]): Point[] => data.map((y: number, x: number) => ({ x, y }));

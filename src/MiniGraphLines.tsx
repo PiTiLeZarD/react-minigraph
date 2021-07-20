@@ -1,6 +1,6 @@
 import React from "react";
 import MiniGraphContext from "./MiniGraphContext";
-import { Point } from "./utils/types";
+import { Point } from "./types";
 import { pointsInContext } from "./utils/dataTransform";
 import svgPath, { line, bezier } from "./utils/svgPath";
 

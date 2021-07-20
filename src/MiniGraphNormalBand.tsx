@@ -2,7 +2,7 @@ import React from "react";
 import MiniGraphContext from "./MiniGraphContext";
 import { pointsInContext } from "./utils/dataTransform";
 import { normPoints } from "./utils/norm";
-import { Point } from "./utils/types";
+import { Point } from "./types";
 
 export type MiniGraphNormalBandProps = {};
 

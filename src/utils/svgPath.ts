@@ -1,4 +1,4 @@
-import { Point } from "./types";
+import { Point } from "../types";
 
 export type PathCommandFn = (point: Point, indx?: number, points?: Point[]) => string;
 

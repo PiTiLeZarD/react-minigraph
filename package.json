@@ -3,6 +3,7 @@
     "version": "0.0.1",
     "main": "docs/index.html",
     "license": "MIT",
+    "types": "src/types.d.ts",
     "homepage": "http://PiTiLeZarD.github.io/react-minigraph",
     "scripts": {
         "dev": "parcel ./demo/index.html",
