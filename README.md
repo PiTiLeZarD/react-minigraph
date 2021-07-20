@@ -24,4 +24,4 @@ yarn dev
 ```
 
 And you'll have the available graphs
-![Screenshot])(/screenshot.png)
+![Screenshot])(https://raw.githubusercontent.com/PiTiLeZarD/react-minigraph/master/screenshot.png)
