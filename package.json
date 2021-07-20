@@ -1,0 +1,16 @@
+{
+    "name": "react-minigraph",
+    "version": "0.0.1",
+    "main": "src/index.ts",
+    "license": "MIT",
+    "scripts": {
+        "dev": "parcel ./demo/index.html"
+    },
+    "devDependencies": {
+        "@types/react": "^17.0.14",
+        "@types/react-dom": "^17.0.9",
+        "parcel": "^2.0.0-beta.3.1",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
+    }
+}
