@@ -6,7 +6,7 @@
     "homepage": "http://PiTiLeZarD.github.io/react-minigraph",
     "scripts": {
         "dev": "parcel ./demo/index.html",
-        "build": "parcel build ./demo/index.html ",
+        "build": "rm -rf ./docs && parcel build ./demo/index.html ",
         "predeploy": "yarn build",
         "deploy": "gh-pages -b ghpages -d docs"
     },
