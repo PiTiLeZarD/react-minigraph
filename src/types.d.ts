@@ -3,6 +3,8 @@ export type Point = {
     y: number;
 };
 
+export type SvgPathCommandFn = (point: Point, indx?: number, points?: Point[]) => string;
+
 export { default as MiniGraph, MiniGraphProps, MiniGraphComponent } from "./MiniGraph";
 export { default as MiniGraphLines, MiniGraphLinesProps, MiniGraphLinesComponent } from "./MiniGraphLines";
 export { default as MiniGraphAverage, MiniGraphAverageProps, MiniGraphAverageComponent } from "./MiniGraphAverage";
