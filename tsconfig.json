@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "lib": ["es6", "dom"],
-        "outDir": "./dist/",
+        "outDir": "dist",
         "noImplicitAny": true,
         "noImplicitThis": true,
         "strictNullChecks": true,
@@ -11,5 +11,7 @@
         "allowJs": true,
         "esModuleInterop": true,
         "moduleResolution": "node"
-    }
+    },
+    "include": ["src"],
+    "exclude": ["node_modules", "dist"]
 }
