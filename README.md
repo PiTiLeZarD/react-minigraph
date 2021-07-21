@@ -23,7 +23,9 @@ yarn dev
 ```tsx
 import { MiniGraph, MiniGraphLine, MiniGraphNormalBand, MiniGraphAverage};
 
-<MiniGraph data={myNumberList}>
+const data: number[] = [ /* Your data */ ];
+
+<MiniGraph data={data}>
     <MiniGraphLine curved />
     <MiniGraphNormalBand />
     <MiniGraphAverage />
@@ -31,6 +33,7 @@ import { MiniGraph, MiniGraphLine, MiniGraphNormalBand, MiniGraphAverage};
 ```
 
 Will get you this:
+
 ![Graph1](/demo/img/graph-line-curved-average-band.png)
 
 ## TODO
