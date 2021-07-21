@@ -26,7 +26,7 @@ import { MiniGraph, MiniGraphLine, MiniGraphNormalBand, MiniGraphAverage};
 const data: number[] = [ /* Your data */ ];
 
 <MiniGraph data={data}>
-    <MiniGraphLine curved />
+    <MiniGraphLine curved filled />
     <MiniGraphNormalBand />
     <MiniGraphAverage />
 </MiniGraphLine>
@@ -40,8 +40,11 @@ Will get you this:
 
 ### v0.0.4
 
+-   Add options and normalise them
+-   Color scales or themes
 -   Doc
 -   MiniGraphLines to handle bargraphs as well (stairs, filled or bars)
+-   Dots (start/end or individual datapoints)
 -   Multiseries graph
 -   Barcode
 -   Matrix (QRCode?)
