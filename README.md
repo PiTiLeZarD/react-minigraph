@@ -49,7 +49,7 @@ Will get you this:
 -   Barcode
 -   Matrix (QRCode?)
 
-### v0.0.5
+### v0.1.0
 
 -   UnitTests
 
