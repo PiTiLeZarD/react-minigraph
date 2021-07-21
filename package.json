@@ -5,6 +5,15 @@
     "license": "MIT",
     "types": "src/types.d.ts",
     "homepage": "http://PiTiLeZarD.github.io/react-minigraph",
+    "author": "Jonathan Adami <pitilezard@gmail.com> (jadami.com)",
+    "bugs": {
+        "url": "https://github.com/PiTiLeZarD/react-minigraph/issues",
+        "email": "pitilezard@gmail.com"
+    },
+    "repository": {
+        "url": "https://github.com/PiTiLeZarD/react-minigraph.git",
+        "type": "git"
+    },
     "scripts": {
         "dev": "parcel ./demo/index.html",
         "build": "rm -rf ./docs && parcel build --public-url /react-minigraph ./demo/index.html ",
