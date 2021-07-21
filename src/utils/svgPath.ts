@@ -2,7 +2,8 @@ import { Point, SvgPathCommandFn } from "../types";
 
 import line from "./svgPathCommands/line";
 import bezier from "./svgPathCommands/bezier";
-export { line, bezier };
+import steps from "./svgPathCommands/steps";
+export { line, bezier, steps };
 
 const close = (currentLine: string, points: Point[], height: number) =>
     [

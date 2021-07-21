@@ -19,4 +19,7 @@ const pointsInContext = (context: MiniGraphContextType, center = true): Point[] 
     return points.map((point: Point, _): Point => ({ x: sectionX(point.x), y: sectionY(point.y) }));
 };
 
-export { dataToPoints, pointsToData, pointsInContext };
+const centerToStartPoints = (points: Point[]): Point[] =>
+    points.map((point: Point, _) => ({ x: point.x - (points[1].x - points[0].x) / 2, y: point.y }));
+
+export { dataToPoints, pointsToData, pointsInContext, centerToStartPoints };

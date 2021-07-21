@@ -14,6 +14,7 @@ export type AppConfig = {
     normalBand: boolean;
     average: boolean;
     line: boolean;
+    steps: boolean;
     smooth: boolean;
 };
 
@@ -31,6 +32,7 @@ const App: AppComponent = ({}): JSX.Element => {
         normalBand: false,
         average: false,
         line: false,
+        steps: false,
         smooth: false,
     });
     const graphStyles = {
@@ -47,7 +49,7 @@ const App: AppComponent = ({}): JSX.Element => {
                 <div style={graphStyles}>
                     <MiniGraph data={data(config.count, config.amplitude)}>
                         {!config.line && <MiniGraphVerticalBars />}
-                        {config.line && <MiniGraphLines curved={config.smooth} />}
+                        {config.line && <MiniGraphLines curved={config.smooth} steps={config.steps} />}
                         {config.normalBand && <MiniGraphNormalBand />}
                         {config.average && <MiniGraphAverage />}
                     </MiniGraph>
@@ -152,21 +154,38 @@ const App: AppComponent = ({}): JSX.Element => {
                         label="Line"
                     />
                     {config.line && (
-                        <FormControlLabel
-                            control={
-                                <Switch
-                                    checked={config.smooth}
-                                    onChange={(ev: React.SyntheticEvent) =>
-                                        setConfig({
-                                            ...config,
-                                            smooth: (ev.target as HTMLInputElement).checked,
-                                        })
-                                    }
-                                    name="smooth"
-                                />
-                            }
-                            label="Smooth"
-                        />
+                        <React.Fragment>
+                            <FormControlLabel
+                                control={
+                                    <Switch
+                                        checked={config.smooth}
+                                        onChange={(ev: React.SyntheticEvent) =>
+                                            setConfig({
+                                                ...config,
+                                                smooth: (ev.target as HTMLInputElement).checked,
+                                            })
+                                        }
+                                        name="smooth"
+                                    />
+                                }
+                                label="Smooth"
+                            />
+                            <FormControlLabel
+                                control={
+                                    <Switch
+                                        checked={config.steps}
+                                        onChange={(ev: React.SyntheticEvent) =>
+                                            setConfig({
+                                                ...config,
+                                                steps: (ev.target as HTMLInputElement).checked,
+                                            })
+                                        }
+                                        name="steps"
+                                    />
+                                }
+                                label="Steps"
+                            />
+                        </React.Fragment>
                     )}
                 </Grid>
             </Grid>
