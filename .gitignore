@@ -2,3 +2,4 @@ node_modules
 .parcel-cache
 docs
 dev
+.DS_Store

@@ -1,26 +1,60 @@
 # react-minigraph
 
-This project has been heavily inspired by [react-sparklines](https://www.npmjs.com/package/react-sparklines). Originally I thought of refreshing that project, but I reckon I recoded it pretty fast and I had fun doing it.
+This project has been heavily inspired by [react-sparklines](https://www.npmjs.com/package/react-sparklines) but entirely re-coded.
 
-I also wanted to improve on it so here were my goals:
+Check out the [demo](https://pitilezard.github.io/react-minigraph/) to see what works.
 
--   Using latest libs (react 17 in particular)
--   s/webpack/parcel/g
--   Have the graphs use the available space and do away with specifying width
--   typescript please
--   curved lines
+## Install
 
-What I have in mind for this project:
+```bash
+npm install react-minigraph --save
+yarn add react-minigraph
+```
 
--   Multiple datasets
--   More visualisations
--   Make it an actual project with tests and all
-
-So not exactly done yet, but if you want to play with it:
+## Run the demo
 
 ```bash
 yarn install
 yarn dev
 ```
 
-And you'll have [the available graphs](https://pitilezard.github.io/react-minigraph/)
+## Use
+
+```tsx
+import { MiniGraph, MiniGraphLine, MiniGraphNormalBand, MiniGraphAverage};
+
+<MiniGraph data={myNumberList}>
+    <MiniGraphLine curved />
+    <MiniGraphNormalBand />
+    <MiniGraphAverage />
+</MiniGraphLine>
+```
+
+Will get you this:
+![Graph1](/demo/img/graph-line-curved-average-band.png)
+
+## TODO
+
+### v0.0.4
+
+-   Doc
+-   MiniGraphLines to handle bargraphs as well (stairs, filled or bars)
+-   Multiseries graph
+-   Barcode
+-   Matrix (QRCode?)
+
+### v0.0.5
+
+-   UnitTests
+
+## Doc
+
+### MiniGraph
+
+### MiniGraphVerticalBars
+
+### MiniGraphLine
+
+### MiniGraphAverage
+
+### MiniGraphNormalBand
