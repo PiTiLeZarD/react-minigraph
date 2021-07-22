@@ -6,19 +6,14 @@ import svgPath, { line, bezier, steps as stepsCmd } from "./utils/svgPath";
 
 export type MiniGraphLinesProps = {
     color?: string;
-    fill?: string | false;
+    filled?: boolean;
     curved?: boolean;
     steps?: boolean;
 };
 
 export type MiniGraphLinesComponent = React.FunctionComponent<MiniGraphLinesProps>;
 
-const MiniGraphLines: MiniGraphLinesComponent = ({
-    color = "#1B1C47",
-    fill = "#D7E5F1",
-    curved = false,
-    steps = false,
-}): JSX.Element => {
+const MiniGraphLines: MiniGraphLinesComponent = ({ curved = false, filled = false, steps = false }): JSX.Element => {
     const context = React.useContext(MiniGraphContext);
     const points: Point[] = pointsInContext(context);
 
@@ -28,8 +23,10 @@ const MiniGraphLines: MiniGraphLinesComponent = ({
 
     return (
         <g>
-            <path d={svgPath(points, command)} fill="none" stroke={color} />
-            {fill && <path d={svgPath(points, command, context.domRect.height)} fill={fill} stroke="none" />}
+            <path d={svgPath(points, command)} fill="none" stroke={context.stroke[0]} />
+            {filled && (
+                <path d={svgPath(points, command, context.domRect.height)} fill={context.fill[0]} stroke="none" />
+            )}
         </g>
     );
 };

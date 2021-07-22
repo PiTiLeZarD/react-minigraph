@@ -13,6 +13,7 @@ export type AppConfig = {
     amplitude: number;
     normalBand: boolean;
     average: boolean;
+    filled: boolean;
     line: boolean;
     steps: boolean;
     smooth: boolean;
@@ -31,6 +32,7 @@ const App: AppComponent = ({}): JSX.Element => {
         amplitude: 100,
         normalBand: false,
         average: false,
+        filled: false,
         line: false,
         steps: false,
         smooth: false,
@@ -48,8 +50,10 @@ const App: AppComponent = ({}): JSX.Element => {
             <div style={{ textAlign: "center" }}>
                 <div style={graphStyles}>
                     <MiniGraph data={data(config.count, config.amplitude)}>
-                        {!config.line && <MiniGraphVerticalBars />}
-                        {config.line && <MiniGraphLines curved={config.smooth} steps={config.steps} />}
+                        {!config.line && <MiniGraphVerticalBars filled={config.filled} />}
+                        {config.line && (
+                            <MiniGraphLines curved={config.smooth} steps={config.steps} filled={config.filled} />
+                        )}
                         {config.normalBand && <MiniGraphNormalBand />}
                         {config.average && <MiniGraphAverage />}
                     </MiniGraph>
@@ -103,7 +107,24 @@ const App: AppComponent = ({}): JSX.Element => {
                 </Grid>
             </Grid>
             <Grid container spacing={8}>
-                <Grid item xs={4} style={{ textAlign: "center" }}>
+                <Grid item xs={3} style={{ textAlign: "center" }}>
+                    <FormControlLabel
+                        control={
+                            <Switch
+                                checked={config.filled}
+                                onChange={(ev: React.SyntheticEvent) =>
+                                    setConfig({
+                                        ...config,
+                                        filled: (ev.target as HTMLInputElement).checked,
+                                    })
+                                }
+                                name="filled"
+                            />
+                        }
+                        label="Filled"
+                    />
+                </Grid>
+                <Grid item xs={3} style={{ textAlign: "center" }}>
                     <FormControlLabel
                         control={
                             <Switch
@@ -120,7 +141,7 @@ const App: AppComponent = ({}): JSX.Element => {
                         label="Normal Band"
                     />
                 </Grid>
-                <Grid item xs={4} style={{ textAlign: "center" }}>
+                <Grid item xs={3} style={{ textAlign: "center" }}>
                     <FormControlLabel
                         control={
                             <Switch
@@ -137,7 +158,7 @@ const App: AppComponent = ({}): JSX.Element => {
                         label="Average"
                     />
                 </Grid>
-                <Grid item xs={4} style={{ textAlign: "center" }}>
+                <Grid item xs={3} style={{ textAlign: "center" }}>
                     <FormControlLabel
                         control={
                             <Switch

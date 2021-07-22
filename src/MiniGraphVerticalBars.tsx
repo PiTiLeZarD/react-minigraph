@@ -5,20 +5,21 @@ import { Point } from "./types";
 import { pointsInContext } from "./utils/dataTransform";
 
 export type MiniGraphVerticalBarsProps = {
-    margin?: number;
-    color?: string;
+    filled?: boolean;
 };
 
 export type MiniGraphVerticalBarsComponent = React.FunctionComponent<MiniGraphVerticalBarsProps>;
 
-const MiniGraphVerticalBars: MiniGraphVerticalBarsComponent = ({ margin = 0, color = "#1B1C47" }): JSX.Element => {
+const MiniGraphVerticalBars: MiniGraphVerticalBarsComponent = ({ filled = false }): JSX.Element => {
     const context = React.useContext(MiniGraphContext);
     const points: Point[] = pointsInContext(context, false);
 
     if (!points.length || !context.domRect) return <React.Fragment />;
 
+    const margin = 1;
     const { width, height } = context.domRect;
     const barWidth = width / points.length;
+    console.log(filled, filled ? { filled: context.fill[0] } : {});
 
     return (
         <g>
@@ -29,7 +30,8 @@ const MiniGraphVerticalBars: MiniGraphVerticalBarsComponent = ({ margin = 0, col
                     y={point.y}
                     width={barWidth - margin * 2}
                     height={height - point.y}
-                    style={{ fill: color }}
+                    stroke={context.stroke[0]}
+                    {...(filled ? { fill: context.fill[0] } : { fillOpacity: 0 })}
                 />
             ))}
         </g>
