@@ -52,7 +52,10 @@ const App: AppComponent = ({}): JSX.Element => {
                     <MiniGraph data={data(config.count, config.amplitude)}>
                         {!config.line && <MiniGraphVerticalBars filled={config.filled} />}
                         {config.line && (
-                            <MiniGraphLines curved={config.smooth} steps={config.steps} filled={config.filled} />
+                            <MiniGraphLines
+                                mode={config.smooth ? "bezier" : config.steps ? "steps" : undefined}
+                                filled={config.filled}
+                            />
                         )}
                         {config.normalBand && <MiniGraphNormalBand />}
                         {config.average && <MiniGraphAverage />}
