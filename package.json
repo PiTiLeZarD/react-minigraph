@@ -35,11 +35,12 @@
         "typescript"
     ],
     "scripts": {
-        "build": "rm -Rf ./dist && tsc",
+        "build": "tsc",
         "build:demo": "parcel build --public-url /react-minigraph ./demo/index.html",
         "dev": "parcel --dist-dir dev ./demo/index.html",
-        "prepublish": "yarn build",
-        "predeploy": "rm -rf ./docs && typedoc src/ && mv docs/index.html docs/doc.html && yarn build:demo",
+        "clean": "rm -Rf docs dev dist .parcel-cache",
+        "prepublish": "yarn clean && yarn build",
+        "predeploy": "yarn clean && typedoc src/ && mv docs/index.html docs/doc.html && yarn build:demo",
         "deploy": "gh-pages -b ghpages -d docs"
     },
     "dependencies": {
