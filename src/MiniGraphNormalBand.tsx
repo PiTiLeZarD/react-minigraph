@@ -6,11 +6,13 @@ import { pointsInContext } from "./utils/dataTransform";
 import { normPoints } from "./utils/norm";
 import { Point } from "./types";
 
-export type MiniGraphNormalBandProps = {};
+export type MiniGraphNormalBandProps = {
+    opacity?: number;
+};
 
 export type MiniGraphNormalBandComponent = React.FunctionComponent<MiniGraphNormalBandProps>;
 
-const MiniGraphNormalBand: MiniGraphNormalBandComponent = (): JSX.Element => {
+const MiniGraphNormalBand: MiniGraphNormalBandComponent = ({ opacity = 0.2 }): JSX.Element => {
     const context = React.useContext(MiniGraphContext);
     const points: Point[] = pointsInContext(context);
 
@@ -25,7 +27,7 @@ const MiniGraphNormalBand: MiniGraphNormalBandComponent = (): JSX.Element => {
             width={context.domRect.width}
             height={stdev * 2}
             fill={chroma.scale([context.colour]).colors(5)[3]}
-            opacity="0.1"
+            opacity={opacity}
         />
     );
 };
