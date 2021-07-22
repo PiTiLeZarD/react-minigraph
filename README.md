@@ -36,12 +36,13 @@ Will get you this:
 
 ![Graph1](/demo/img/graph-line-curved-average-band.png)
 
+Colours are automatically generated using [chroma-js](https://vis4.net/chromajs/), if you don't specify the starting colour, it'll pick one randomly.
+
 ## TODO
 
 ### v0.0.4
 
 -   Add options and normalise them
--   Color scales or themes
 -   Vertical/Horizontal gridlines
 -   Doc
 -   MiniGraphLines to handle bargraphs as well (stairs, filled or bars)

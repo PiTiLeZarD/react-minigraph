@@ -2,6 +2,7 @@ import React from "react";
 
 import MiniGraphContext from "./MiniGraphContext";
 import { Point } from "./types";
+import { getFill } from "./utils/colours";
 import { pointsInContext } from "./utils/dataTransform";
 
 export type MiniGraphVerticalBarsProps = {
@@ -19,7 +20,6 @@ const MiniGraphVerticalBars: MiniGraphVerticalBarsComponent = ({ filled = false 
     const margin = 1;
     const { width, height } = context.domRect;
     const barWidth = width / points.length;
-    console.log(filled, filled ? { filled: context.fill[0] } : {});
 
     return (
         <g>
@@ -30,8 +30,8 @@ const MiniGraphVerticalBars: MiniGraphVerticalBarsComponent = ({ filled = false 
                     y={point.y}
                     width={barWidth - margin * 2}
                     height={height - point.y}
-                    stroke={context.stroke[0]}
-                    {...(filled ? { fill: context.fill[0] } : { fillOpacity: 0 })}
+                    stroke={context.colour}
+                    {...(filled ? { fill: getFill(context.colour) } : { fillOpacity: 0 })}
                 />
             ))}
         </g>

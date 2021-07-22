@@ -1,23 +1,18 @@
 import React from "react";
+import chroma from "chroma-js";
 
-import MiniGraphContext, { colorScales } from "./MiniGraphContext";
+import MiniGraphContext from "./MiniGraphContext";
 import { dataToPoints } from "./utils/dataTransform";
 import useRect from "./utils/useRect";
 
 export type MiniGraphProps = {
     data: number[];
-    stroke?: string[];
-    fill?: string[];
+    colour?: string;
 };
 
 export type MiniGraphComponent = React.FunctionComponent<MiniGraphProps>;
 
-const MiniGraph: MiniGraphComponent = ({
-    data,
-    stroke = colorScales.stroke,
-    fill = colorScales.fill,
-    children,
-}): JSX.Element => {
+const MiniGraph: MiniGraphComponent = ({ data, colour = chroma.random().hex(), children }): JSX.Element => {
     const ref = React.useRef<HTMLDivElement | null>(null);
     const rect: DOMRect | undefined = useRect<HTMLDivElement>(ref);
 
@@ -26,8 +21,7 @@ const MiniGraph: MiniGraphComponent = ({
     const contextData = {
         points: dataToPoints(data),
         domRect: rect,
-        stroke,
-        fill,
+        colour,
     };
     const svgOpts = { viewBox: `0 0 ${rect ? rect.width : 0} ${rect ? rect.height : 0}` };
 

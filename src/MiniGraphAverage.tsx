@@ -1,4 +1,6 @@
 import React from "react";
+import chroma from "chroma-js";
+
 import MiniGraphContext from "./MiniGraphContext";
 import { pointsInContext } from "./utils/dataTransform";
 import { avgPoints } from "./utils/norm";
@@ -16,7 +18,16 @@ const MiniGraphAverage: MiniGraphAverageComponent = ({}): JSX.Element => {
 
     const avg = avgPoints(points);
 
-    return <line x1="0" x2={context.domRect.width} y1={avg} y2={avg} stroke="red" strokeDasharray="2, 2" />;
+    return (
+        <line
+            x1="0"
+            x2={context.domRect.width}
+            y1={avg}
+            y2={avg}
+            stroke={chroma.scale([context.colour]).colors(5)[2]}
+            strokeDasharray="2, 2"
+        />
+    );
 };
 
 export default MiniGraphAverage;

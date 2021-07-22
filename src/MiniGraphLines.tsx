@@ -3,9 +3,9 @@ import MiniGraphContext from "./MiniGraphContext";
 import { Point } from "./types";
 import { pointsInContext } from "./utils/dataTransform";
 import svgPath, { line, bezier, steps as stepsCmd } from "./utils/svgPath";
+import { getFill } from "./utils/colours";
 
 export type MiniGraphLinesProps = {
-    color?: string;
     filled?: boolean;
     curved?: boolean;
     steps?: boolean;
@@ -23,9 +23,13 @@ const MiniGraphLines: MiniGraphLinesComponent = ({ curved = false, filled = fals
 
     return (
         <g>
-            <path d={svgPath(points, command)} fill="none" stroke={context.stroke[0]} />
+            <path d={svgPath(points, command)} fill="none" stroke={context.colour} />
             {filled && (
-                <path d={svgPath(points, command, context.domRect.height)} fill={context.fill[0]} stroke="none" />
+                <path
+                    d={svgPath(points, command, context.domRect.height)}
+                    fill={getFill(context.colour)}
+                    stroke="none"
+                />
             )}
         </g>
     );
