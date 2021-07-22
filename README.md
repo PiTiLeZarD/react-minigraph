@@ -1,7 +1,5 @@
 # react-minigraph
 
-This project has been heavily inspired by [react-sparklines](https://www.npmjs.com/package/react-sparklines) but entirely re-coded.
-
 Check out the [demo](https://pitilezard.github.io/react-minigraph/) to see what works.
 
 ## Install
@@ -66,3 +64,7 @@ Colours are automatically generated using [chroma-js](https://vis4.net/chromajs/
 ### MiniGraphAverage
 
 ### MiniGraphNormalBand
+
+## Prior Art
+
+This project was inspired by [react-sparklines](https://www.npmjs.com/package/react-sparklines).
