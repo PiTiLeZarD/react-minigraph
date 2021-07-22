@@ -23,6 +23,17 @@
         "url": "https://github.com/PiTiLeZarD/react-minigraph.git",
         "type": "git"
     },
+    "keywords": [
+        "react",
+        "component",
+        "react-component",
+        "charts",
+        "sparklines",
+        "visualization",
+        "jsx",
+        "tsx",
+        "typescript"
+    ],
     "scripts": {
         "build": "rm -Rf ./dist && tsc",
         "build:demo": "rm -rf ./docs && parcel build --public-url /react-minigraph ./demo/index.html",
