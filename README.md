@@ -42,6 +42,7 @@ Will get you this:
 
 -   Add options and normalise them
 -   Color scales or themes
+-   Vertical/Horizontal gridlines
 -   Doc
 -   MiniGraphLines to handle bargraphs as well (stairs, filled or bars)
 -   Dots (start/end or individual datapoints)
