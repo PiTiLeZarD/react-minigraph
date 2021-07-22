@@ -1,6 +1,6 @@
 # react-minigraph
 
-Check out the [demo](https://pitilezard.github.io/react-minigraph/) to see what works.
+Check out the [demo](https://pitilezard.github.io/react-minigraph) to see what works.
 
 ## Install
 
@@ -42,8 +42,6 @@ Colours are automatically generated using [chroma-js](https://vis4.net/chromajs/
 
 -   Add options and normalise them
 -   Vertical/Horizontal gridlines
--   Doc
--   MiniGraphLines to handle bargraphs as well (stairs, filled or bars)
 -   Dots (start/end or individual datapoints)
 -   Multiseries graph
 -   Barcode
@@ -55,15 +53,7 @@ Colours are automatically generated using [chroma-js](https://vis4.net/chromajs/
 
 ## Doc
 
-### MiniGraph
-
-### MiniGraphVerticalBars
-
-### MiniGraphLine
-
-### MiniGraphAverage
-
-### MiniGraphNormalBand
+Doc is [available here](https://pitilezard.github.io/react-minigraph/doc.html)
 
 ## Prior Art
 
