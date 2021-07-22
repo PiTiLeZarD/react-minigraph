@@ -57,89 +57,40 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<a href="#react-minigraph" id="react-minigraph" style="color: inherit; text-decoration: none;">
-					<h1>react-minigraph</h1>
-				</a>
-				<p>Check out the <a href="https://pitilezard.github.io/react-minigraph/">demo</a> to see what works.</p>
-				<a href="#install" id="install" style="color: inherit; text-decoration: none;">
-					<h2>Install</h2>
-				</a>
-				<pre><code class="language-bash"><span style="color: #000000">npm install react-minigraph --save</span>
-<span style="color: #000000">yarn add react-minigraph</span>
-</code></pre>
-				<a href="#run-the-demo" id="run-the-demo" style="color: inherit; text-decoration: none;">
-					<h2>Run the demo</h2>
-				</a>
-				<pre><code class="language-bash"><span style="color: #000000">yarn install</span>
-<span style="color: #000000">yarn dev</span>
-</code></pre>
-				<a href="#use" id="use" style="color: inherit; text-decoration: none;">
-					<h2>Use</h2>
-				</a>
-				<pre><code class="language-tsx"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">MiniGraph</span><span style="color: #000000">, </span><span style="color: #001080">MiniGraphLine</span><span style="color: #000000">, </span><span style="color: #001080">MiniGraphNormalBand</span><span style="color: #000000">, </span><span style="color: #001080">MiniGraphAverage</span><span style="color: #000000">};</span>
-
-<span style="color: #001080">const</span><span style="color: #000000"> </span><span style="color: #001080">data</span><span style="color: #000000">: </span><span style="color: #001080">number</span><span style="color: #000000">[] = [ </span><span style="color: #008000">/* Your data */</span><span style="color: #000000"> ];</span>
-
-<span style="color: #000000">&lt;</span><span style="color: #001080">MiniGraph</span><span style="color: #000000"> </span><span style="color: #001080">data</span><span style="color: #000000">={</span><span style="color: #001080">data</span><span style="color: #000000">}&gt;</span>
-<span style="color: #000000">    &lt;</span><span style="color: #001080">MiniGraphLine</span><span style="color: #000000"> </span><span style="color: #001080">curved</span><span style="color: #000000"> </span><span style="color: #001080">filled</span><span style="color: #000000"> /&gt;</span>
-<span style="color: #000000">    &lt;</span><span style="color: #001080">MiniGraphNormalBand</span><span style="color: #000000"> /&gt;</span>
-<span style="color: #000000">    &lt;</span><span style="color: #001080">MiniGraphAverage</span><span style="color: #000000"> /&gt;</span>
-<span style="color: #000000">&lt;/</span><span style="color: #001080">MiniGraphLine</span><span style="color: #000000">&gt;</span>
-</code></pre>
-				<p>Will get you this:</p>
-				<p><img src="/demo/img/graph-line-curved-average-band.png" alt="Graph1"></p>
-				<p>Colours are automatically generated using <a href="https://vis4.net/chromajs/">chroma-js</a>, if you don&#39;t specify the starting colour, it&#39;ll pick one randomly.</p>
-				<a href="#todo" id="todo" style="color: inherit; text-decoration: none;">
-					<h2>TODO</h2>
-				</a>
-				<a href="#v004" id="v004" style="color: inherit; text-decoration: none;">
-					<h3>v0.0.4</h3>
-				</a>
-				<ul>
-					<li>  Add options and normalise them</li>
-					<li>  Vertical/Horizontal gridlines</li>
-					<li>  Doc</li>
-					<li>  MiniGraphLines to handle bargraphs as well (stairs, filled or bars)</li>
-					<li>  Dots (start/end or individual datapoints)</li>
-					<li>  Multiseries graph</li>
-					<li>  Barcode</li>
-					<li>  Matrix (QRCode?)</li>
-				</ul>
-				<a href="#v010" id="v010" style="color: inherit; text-decoration: none;">
-					<h3>v0.1.0</h3>
-				</a>
-				<ul>
-					<li>  UnitTests</li>
-				</ul>
-				<a href="#doc" id="doc" style="color: inherit; text-decoration: none;">
-					<h2>Doc</h2>
-				</a>
-				<a href="#minigraph" id="minigraph" style="color: inherit; text-decoration: none;">
-					<h3>MiniGraph</h3>
-				</a>
-				<a href="#minigraphverticalbars" id="minigraphverticalbars" style="color: inherit; text-decoration: none;">
-					<h3>MiniGraphVerticalBars</h3>
-				</a>
-				<a href="#minigraphline" id="minigraphline" style="color: inherit; text-decoration: none;">
-					<h3>MiniGraphLine</h3>
-				</a>
-				<a href="#minigraphaverage" id="minigraphaverage" style="color: inherit; text-decoration: none;">
-					<h3>MiniGraphAverage</h3>
-				</a>
-				<a href="#minigraphnormalband" id="minigraphnormalband" style="color: inherit; text-decoration: none;">
-					<h3>MiniGraphNormalBand</h3>
-				</a>
-				<a href="#prior-art" id="prior-art" style="color: inherit; text-decoration: none;">
-					<h2>Prior Art</h2>
-				</a>
-				<p>This project was inspired by <a href="https://www.npmjs.com/package/react-sparklines">react-sparklines</a>.</p>
-			</div>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Modules</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-module"><a href="modules/MiniGraph.html" class="tsd-kind-icon">Mini<wbr>Graph</a></li>
+								<li class="tsd-kind-module"><a href="modules/MiniGraphAverage.html" class="tsd-kind-icon">Mini<wbr>Graph<wbr>Average</a></li>
+								<li class="tsd-kind-module"><a href="modules/MiniGraphContext.html" class="tsd-kind-icon">Mini<wbr>Graph<wbr>Context</a></li>
+								<li class="tsd-kind-module"><a href="modules/MiniGraphLines.html" class="tsd-kind-icon">Mini<wbr>Graph<wbr>Lines</a></li>
+								<li class="tsd-kind-module"><a href="modules/MiniGraphNormalBand.html" class="tsd-kind-icon">Mini<wbr>Graph<wbr>Normal<wbr>Band</a></li>
+								<li class="tsd-kind-module"><a href="modules/MiniGraphVerticalBars.html" class="tsd-kind-icon">Mini<wbr>Graph<wbr>Vertical<wbr>Bars</a></li>
+								<li class="tsd-kind-module"><a href="modules/index.html" class="tsd-kind-icon">index</a></li>
+								<li class="tsd-kind-module"><a href="modules/types.html" class="tsd-kind-icon">types</a></li>
+								<li class="tsd-kind-module"><a href="modules/utils_colours.html" class="tsd-kind-icon">utils/colours</a></li>
+								<li class="tsd-kind-module"><a href="modules/utils_dataTransform.html" class="tsd-kind-icon">utils/data<wbr>Transform</a></li>
+								<li class="tsd-kind-module"><a href="modules/utils_maxY.html" class="tsd-kind-icon">utils/maxY</a></li>
+								<li class="tsd-kind-module"><a href="modules/utils_norm.html" class="tsd-kind-icon">utils/norm</a></li>
+								<li class="tsd-kind-module"><a href="modules/utils_svgPath.html" class="tsd-kind-icon">utils/svg<wbr>Path</a></li>
+								<li class="tsd-kind-module"><a href="modules/utils_svgPathCommands_bezier.html" class="tsd-kind-icon">utils/svg<wbr>Path<wbr>Commands/bezier</a></li>
+								<li class="tsd-kind-module"><a href="modules/utils_svgPathCommands_line.html" class="tsd-kind-icon">utils/svg<wbr>Path<wbr>Commands/line</a></li>
+								<li class="tsd-kind-module"><a href="modules/utils_svgPathCommands_steps.html" class="tsd-kind-icon">utils/svg<wbr>Path<wbr>Commands/steps</a></li>
+								<li class="tsd-kind-module"><a href="modules/utils_useRect.html" class="tsd-kind-icon">utils/use<wbr>Rect</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class=" ">
+					<li class="current ">
 						<a href="modules.html">Modules</a>
 					</li>
 					<li class=" tsd-kind-module">
