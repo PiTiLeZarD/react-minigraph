@@ -1,3 +1,5 @@
+![npm](https://img.shields.io/npm/dm/react-minigraph)
+
 # react-minigraph
 
 -   Check out the [demo](https://pitilezard.github.io/react-minigraph)
