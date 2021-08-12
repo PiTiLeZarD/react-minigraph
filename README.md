@@ -39,6 +39,10 @@ Will get you this:
 
 Colours are automatically generated using [chroma-js](https://vis4.net/chromajs/), if you don't specify the starting colour, it'll pick one randomly.
 
+## Future Plans
+
+Check out [drafted releases](https://github.com/PiTiLeZarD/react-minigraph/releases) for future plans
+
 ## Prior Art
 
 This project was inspired by [react-sparklines](https://www.npmjs.com/package/react-sparklines).
