@@ -21,8 +21,8 @@ const MiniGraphAverage: MiniGraphAverageComponent = ({}): JSX.Element => {
     return (
         <line
             x1="0"
-            x2={context.domRect.width}
             y1={avg}
+            x2={context.domRect.width}
             y2={avg}
             stroke={chroma.scale([context.colour]).colors(5)[2]}
             strokeDasharray="2, 2"
