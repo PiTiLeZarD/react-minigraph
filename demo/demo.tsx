@@ -244,6 +244,7 @@ const App: AppComponent = ({}): JSX.Element => {
                                     setConfig({
                                         ...config,
                                         steps: (ev.target as HTMLInputElement).checked,
+                                        smooth: false,
                                     })
                                 }
                                 name="steps"
