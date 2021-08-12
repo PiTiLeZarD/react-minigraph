@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { MiniGraph, MiniGraphVerticalBars, MiniGraphLines, MiniGraphNormalBand, MiniGraphAverage } from "../src";
-import { Grid, TextField, InputAdornment, Switch, FormControlLabel } from "@material-ui/core";
+import { Grid, Paper, TextField, InputAdornment, Switch, FormControlLabel, Tabs, Tab } from "@material-ui/core";
 export type AppProps = {};
 
 export type AppComponent = React.FunctionComponent<AppProps>;
@@ -14,7 +14,6 @@ export type AppConfig = {
     normalBand: boolean;
     average: boolean;
     filled: boolean;
-    line: boolean;
     steps: boolean;
     smooth: boolean;
 };
@@ -25,6 +24,7 @@ const data = (length: number, max: number): number[] =>
         .map(() => Math.round(Math.random() * max));
 
 const App: AppComponent = ({}): JSX.Element => {
+    const [currentTab, setCurrentTab] = React.useState<number>(0);
     const [config, setConfig] = React.useState<AppConfig>({
         width: 200,
         height: 60,
@@ -33,7 +33,6 @@ const App: AppComponent = ({}): JSX.Element => {
         normalBand: false,
         average: false,
         filled: false,
-        line: false,
         steps: false,
         smooth: false,
     });
@@ -45,13 +44,15 @@ const App: AppComponent = ({}): JSX.Element => {
         padding: "0.5em",
     };
 
+    const handleTabChange = (_: any, newValue: number) => setCurrentTab(newValue);
+
     return (
         <React.Fragment>
             <div style={{ textAlign: "center" }}>
                 <div style={graphStyles}>
                     <MiniGraph data={data(config.count, config.amplitude)}>
-                        {!config.line && <MiniGraphVerticalBars filled={config.filled} />}
-                        {config.line && (
+                        {currentTab == 0 && <MiniGraphVerticalBars filled={config.filled} />}
+                        {currentTab == 1 && (
                             <MiniGraphLines
                                 mode={config.smooth ? "bezier" : config.steps ? "steps" : undefined}
                                 filled={config.filled}
@@ -110,7 +111,7 @@ const App: AppComponent = ({}): JSX.Element => {
                 </Grid>
             </Grid>
             <Grid container spacing={8}>
-                <Grid item xs={3} style={{ textAlign: "center" }}>
+                <Grid item xs={4} style={{ textAlign: "center" }}>
                     <FormControlLabel
                         control={
                             <Switch
@@ -127,7 +128,7 @@ const App: AppComponent = ({}): JSX.Element => {
                         label="Filled"
                     />
                 </Grid>
-                <Grid item xs={3} style={{ textAlign: "center" }}>
+                <Grid item xs={4} style={{ textAlign: "center" }}>
                     <FormControlLabel
                         control={
                             <Switch
@@ -144,7 +145,7 @@ const App: AppComponent = ({}): JSX.Element => {
                         label="Normal Band"
                     />
                 </Grid>
-                <Grid item xs={3} style={{ textAlign: "center" }}>
+                <Grid item xs={4} style={{ textAlign: "center" }}>
                     <FormControlLabel
                         control={
                             <Switch
@@ -161,58 +162,50 @@ const App: AppComponent = ({}): JSX.Element => {
                         label="Average"
                     />
                 </Grid>
-                <Grid item xs={3} style={{ textAlign: "center" }}>
+            </Grid>
+            <Tabs indicatorColor="primary" textColor="primary" onChange={handleTabChange} value={currentTab}>
+                <Tab label="VerticalBars" />
+                <Tab label="Line" />
+            </Tabs>
+            {currentTab == 0 && (
+                <Paper elevation={4} style={{ padding: "2em" }}>
+                    No specific config for VerticalBars
+                </Paper>
+            )}
+            {currentTab == 1 && (
+                <Paper elevation={4} style={{ padding: "2em" }}>
                     <FormControlLabel
                         control={
                             <Switch
-                                checked={config.line}
+                                checked={config.smooth}
                                 onChange={(ev: React.SyntheticEvent) =>
                                     setConfig({
                                         ...config,
-                                        line: (ev.target as HTMLInputElement).checked,
+                                        smooth: (ev.target as HTMLInputElement).checked,
                                     })
                                 }
-                                name="line"
+                                name="smooth"
                             />
                         }
-                        label="Line"
+                        label="Smooth"
                     />
-                    {config.line && (
-                        <React.Fragment>
-                            <FormControlLabel
-                                control={
-                                    <Switch
-                                        checked={config.smooth}
-                                        onChange={(ev: React.SyntheticEvent) =>
-                                            setConfig({
-                                                ...config,
-                                                smooth: (ev.target as HTMLInputElement).checked,
-                                            })
-                                        }
-                                        name="smooth"
-                                    />
+                    <FormControlLabel
+                        control={
+                            <Switch
+                                checked={config.steps}
+                                onChange={(ev: React.SyntheticEvent) =>
+                                    setConfig({
+                                        ...config,
+                                        steps: (ev.target as HTMLInputElement).checked,
+                                    })
                                 }
-                                label="Smooth"
+                                name="steps"
                             />
-                            <FormControlLabel
-                                control={
-                                    <Switch
-                                        checked={config.steps}
-                                        onChange={(ev: React.SyntheticEvent) =>
-                                            setConfig({
-                                                ...config,
-                                                steps: (ev.target as HTMLInputElement).checked,
-                                            })
-                                        }
-                                        name="steps"
-                                    />
-                                }
-                                label="Steps"
-                            />
-                        </React.Fragment>
-                    )}
-                </Grid>
-            </Grid>
+                        }
+                        label="Steps"
+                    />
+                </Paper>
+            )}
         </React.Fragment>
     );
 };
