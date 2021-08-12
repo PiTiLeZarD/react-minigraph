@@ -1,6 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { MiniGraph, MiniGraphVerticalBars, MiniGraphLines, MiniGraphNormalBand, MiniGraphAverage } from "../src";
+import {
+    MiniGraph,
+    MiniGraphVerticalBars,
+    MiniGraphLines,
+    MiniGraphNormalBand,
+    MiniGraphAverage,
+    MiniGraphGrid,
+} from "../src";
 import { Grid, Paper, TextField, InputAdornment, Switch, FormControlLabel, Tabs, Tab } from "@material-ui/core";
 export type AppProps = {};
 
@@ -16,6 +23,9 @@ export type AppConfig = {
     filled: boolean;
     steps: boolean;
     smooth: boolean;
+    grid: boolean;
+    gridMode: "vertical" | "horizontal";
+    gridEvery: number;
 };
 
 const data = (length: number, max: number): number[] =>
@@ -32,9 +42,12 @@ const App: AppComponent = ({}): JSX.Element => {
         amplitude: 100,
         normalBand: false,
         average: false,
-        filled: false,
+        filled: true,
         steps: false,
         smooth: false,
+        grid: false,
+        gridEvery: 20,
+        gridMode: "horizontal",
     });
     const graphStyles = {
         width: `${config.width}px`,
@@ -51,6 +64,7 @@ const App: AppComponent = ({}): JSX.Element => {
             <div style={{ textAlign: "center" }}>
                 <div style={graphStyles}>
                     <MiniGraph data={data(config.count, config.amplitude)}>
+                        {config.grid && <MiniGraphGrid every={config.gridEvery} mode={config.gridMode} />}
                         {currentTab == 0 && <MiniGraphVerticalBars filled={config.filled} />}
                         {currentTab == 1 && (
                             <MiniGraphLines
@@ -111,7 +125,7 @@ const App: AppComponent = ({}): JSX.Element => {
                 </Grid>
             </Grid>
             <Grid container spacing={8}>
-                <Grid item xs={4} style={{ textAlign: "center" }}>
+                <Grid item xs={3} style={{ textAlign: "center" }}>
                     <FormControlLabel
                         control={
                             <Switch
@@ -128,7 +142,7 @@ const App: AppComponent = ({}): JSX.Element => {
                         label="Filled"
                     />
                 </Grid>
-                <Grid item xs={4} style={{ textAlign: "center" }}>
+                <Grid item xs={3} style={{ textAlign: "center" }}>
                     <FormControlLabel
                         control={
                             <Switch
@@ -145,7 +159,7 @@ const App: AppComponent = ({}): JSX.Element => {
                         label="Normal Band"
                     />
                 </Grid>
-                <Grid item xs={4} style={{ textAlign: "center" }}>
+                <Grid item xs={3} style={{ textAlign: "center" }}>
                     <FormControlLabel
                         control={
                             <Switch
@@ -162,6 +176,54 @@ const App: AppComponent = ({}): JSX.Element => {
                         label="Average"
                     />
                 </Grid>
+                <Grid item xs={3} style={{ textAlign: "center" }}>
+                    <FormControlLabel
+                        control={
+                            <Switch
+                                checked={config.grid}
+                                onChange={(ev: React.SyntheticEvent) =>
+                                    setConfig({
+                                        ...config,
+                                        grid: (ev.target as HTMLInputElement).checked,
+                                    })
+                                }
+                                name="grid"
+                            />
+                        }
+                        label="Grid"
+                    />
+                    {config.grid && (
+                        <React.Fragment>
+                            <FormControlLabel
+                                control={
+                                    <Switch
+                                        checked={config.gridMode == "horizontal"}
+                                        onChange={(ev: React.SyntheticEvent) =>
+                                            setConfig({
+                                                ...config,
+                                                gridMode: (ev.target as HTMLInputElement).checked
+                                                    ? "horizontal"
+                                                    : "vertical",
+                                            })
+                                        }
+                                        name="gridMode"
+                                    />
+                                }
+                                label={config.gridMode}
+                            />
+                            <TextField
+                                label="Every"
+                                value={config.gridEvery}
+                                onChange={(ev: React.SyntheticEvent) =>
+                                    setConfig({
+                                        ...config,
+                                        gridEvery: parseInt((ev.target as HTMLInputElement).value) || 20,
+                                    })
+                                }
+                            />
+                        </React.Fragment>
+                    )}
+                </Grid>
             </Grid>
             <Tabs indicatorColor="primary" textColor="primary" onChange={handleTabChange} value={currentTab}>
                 <Tab label="VerticalBars" />
@@ -177,21 +239,6 @@ const App: AppComponent = ({}): JSX.Element => {
                     <FormControlLabel
                         control={
                             <Switch
-                                checked={config.smooth}
-                                onChange={(ev: React.SyntheticEvent) =>
-                                    setConfig({
-                                        ...config,
-                                        smooth: (ev.target as HTMLInputElement).checked,
-                                    })
-                                }
-                                name="smooth"
-                            />
-                        }
-                        label="Smooth"
-                    />
-                    <FormControlLabel
-                        control={
-                            <Switch
                                 checked={config.steps}
                                 onChange={(ev: React.SyntheticEvent) =>
                                     setConfig({
@@ -204,6 +251,23 @@ const App: AppComponent = ({}): JSX.Element => {
                         }
                         label="Steps"
                     />
+                    {!config.steps && (
+                        <FormControlLabel
+                            control={
+                                <Switch
+                                    checked={config.smooth}
+                                    onChange={(ev: React.SyntheticEvent) =>
+                                        setConfig({
+                                            ...config,
+                                            smooth: (ev.target as HTMLInputElement).checked,
+                                        })
+                                    }
+                                    name="smooth"
+                                />
+                            }
+                            label="Smooth"
+                        />
+                    )}
                 </Paper>
             )}
         </React.Fragment>
