@@ -10,7 +10,7 @@ export type MiniGraphProps = {
     colour?: string;
 };
 
-export type MiniGraphComponent = React.FunctionComponent<MiniGraphProps>;
+export type MiniGraphComponent = React.FunctionComponent<React.PropsWithChildren<MiniGraphProps>>;
 
 const MiniGraph: MiniGraphComponent = ({ data, colour = chroma.random().hex(), children }): JSX.Element => {
     const ref = React.useRef<HTMLDivElement | null>(null);
