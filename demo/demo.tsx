@@ -8,7 +8,7 @@ import {
     MiniGraphAverage,
     MiniGraphGrid,
 } from "../src";
-import { Grid, Paper, TextField, InputAdornment, Switch, FormControlLabel, Tabs, Tab } from "@material-ui/core";
+import { Grid, Paper, TextField, InputAdornment, Switch, FormControlLabel, Tabs, Tab } from "@mui/material";
 export type AppProps = {};
 
 export type AppComponent = React.FunctionComponent<AppProps>;

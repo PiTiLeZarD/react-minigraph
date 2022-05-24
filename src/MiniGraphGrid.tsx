@@ -1,7 +1,7 @@
 import React from "react";
 
 import MiniGraphContext from "./MiniGraphContext";
-import { pointsInContext, pointsToData } from "./utils/dataTransform";
+import { pointsInContext } from "./utils/dataTransform";
 import { Point } from "./types";
 import maxY from "./utils/maxY";
 
