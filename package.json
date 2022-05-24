@@ -1,6 +1,6 @@
 {
     "name": "react-minigraph",
-    "version": "0.0.4",
+    "version": "0.0.6",
     "main": "dist/index.js",
     "types": "src/types.d.ts",
     "demo": "demo/index.html",
@@ -47,9 +47,9 @@
         "chroma-js": "^2.4.2"
     },
     "devDependencies": {
-        "@mui/material": "^5.8.1",
         "@emotion/react": "^11.9.0",
         "@emotion/styled": "^11.8.1",
+        "@mui/material": "^5.8.1",
         "@types/chroma-js": "^2.1.3",
         "@types/react": "^18.0.9",
         "@types/react-dom": "^18.0.5",
