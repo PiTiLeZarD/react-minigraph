@@ -3,7 +3,7 @@ import React from "react";
 
 import { MiniGraphContext } from "./MiniGraphContext";
 import { dataToPoints } from "./utils/dataTransform";
-import useRect from "./utils/useRect";
+import { useRect } from "./utils/useRect";
 
 export type MiniGraphProps = {
     data: number[];

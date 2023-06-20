@@ -4,7 +4,7 @@ import { MiniGraphContext } from "./MiniGraphContext";
 import { Point } from "./types";
 import { getFill } from "./utils/colours";
 import { pointsInContext } from "./utils/dataTransform";
-import svgPath, { bezier, line, steps } from "./utils/svgPath";
+import { bezier, line, steps, svgPath } from "./utils/svgPath";
 
 export type MiniGraphLinesProps = {
     filled?: boolean;

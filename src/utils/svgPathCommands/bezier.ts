@@ -27,10 +27,13 @@ const controlPoint = (
     return { x: current.x + Math.cos(angle) * length, y: current.y + Math.sin(angle) * length };
 };
 
-const bezier: SvgPathCommandFn = (point: Point, indx: number, points: Point[], smoothing: number = 0.25): string => {
+export const bezier: SvgPathCommandFn = (
+    point: Point,
+    indx: number,
+    points: Point[],
+    smoothing: number = 0.25
+): string => {
     const cps = controlPoint(points[indx - 1], points[indx - 2], point, smoothing);
     const cpe = controlPoint(point, points[indx - 1], points[indx + 1], smoothing, true);
     return `C ${cps.x},${cps.y} ${cpe.x},${cpe.y} ${point.x},${point.y}`;
 };
-
-export default bezier;

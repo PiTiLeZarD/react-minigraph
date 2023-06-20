@@ -1,9 +1,9 @@
 import { Point, SvgPathCommandFn } from "../types";
 
-import line from "./svgPathCommands/line";
-import bezier from "./svgPathCommands/bezier";
-import steps from "./svgPathCommands/steps";
-export { line, bezier, steps };
+import { bezier } from "./svgPathCommands/bezier";
+import { line } from "./svgPathCommands/line";
+import { steps } from "./svgPathCommands/steps";
+export { bezier, line, steps };
 
 const close = (currentLine: string, points: Point[], height: number) =>
     [
@@ -13,7 +13,7 @@ const close = (currentLine: string, points: Point[], height: number) =>
         line(points[0]),
     ].join(" ");
 
-const svgPath = (points: Point[], command: SvgPathCommandFn, closed: number | false = false): string => {
+export const svgPath = (points: Point[], command: SvgPathCommandFn, closed: number | false = false): string => {
     const line = points.reduce(
         (acc, point, i, a) => (i === 0 ? `M ${point.x},${point.y}` : `${acc} ${command(point, i, a)}`),
         ""
@@ -23,5 +23,3 @@ const svgPath = (points: Point[], command: SvgPathCommandFn, closed: number | fa
     }
     return line;
 };
-
-export default svgPath;

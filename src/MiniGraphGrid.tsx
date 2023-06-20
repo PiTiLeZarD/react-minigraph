@@ -3,7 +3,7 @@ import React from "react";
 import { MiniGraphContext } from "./MiniGraphContext";
 import { Point } from "./types";
 import { pointsInContext } from "./utils/dataTransform";
-import maxY from "./utils/maxY";
+import { maxY } from "./utils/maxY";
 
 export type MiniGraphGridProps = {
     mode?: "vertical" | "horizontal";

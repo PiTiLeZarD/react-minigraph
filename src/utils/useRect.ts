@@ -2,7 +2,7 @@ import React from "react";
 
 export type useRectFn = <T extends HTMLElement>(ref: React.RefObject<T>) => DOMRect | undefined;
 
-const useRect: useRectFn = (ref) => {
+export const useRect: useRectFn = (ref) => {
     const [rect, setRect] = React.useState<DOMRect | undefined>(undefined);
 
     const handleResize = React.useCallback(() => {
@@ -42,5 +42,3 @@ const useRect: useRectFn = (ref) => {
 
     return rect;
 };
-
-export default useRect;
