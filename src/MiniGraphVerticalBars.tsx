@@ -1,6 +1,6 @@
 import React from "react";
 
-import MiniGraphContext from "./MiniGraphContext";
+import { MiniGraphContext } from "./MiniGraphContext";
 import { Point } from "./types";
 import { getFill } from "./utils/colours";
 import { pointsInContext } from "./utils/dataTransform";
@@ -11,7 +11,7 @@ export type MiniGraphVerticalBarsProps = {
 
 export type MiniGraphVerticalBarsComponent = React.FunctionComponent<MiniGraphVerticalBarsProps>;
 
-const MiniGraphVerticalBars: MiniGraphVerticalBarsComponent = ({ filled = false }): JSX.Element => {
+export const MiniGraphVerticalBars: MiniGraphVerticalBarsComponent = ({ filled = false }): JSX.Element => {
     const context = React.useContext(MiniGraphContext);
     const points: Point[] = pointsInContext(context, false);
 
@@ -37,5 +37,3 @@ const MiniGraphVerticalBars: MiniGraphVerticalBarsComponent = ({ filled = false 
         </g>
     );
 };
-
-export default MiniGraphVerticalBars;

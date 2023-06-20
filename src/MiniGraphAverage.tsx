@@ -1,16 +1,16 @@
-import React from "react";
 import chroma from "chroma-js";
+import React from "react";
 
-import MiniGraphContext from "./MiniGraphContext";
+import { MiniGraphContext } from "./MiniGraphContext";
+import { Point } from "./types";
 import { pointsInContext } from "./utils/dataTransform";
 import { avgPoints } from "./utils/norm";
-import { Point } from "./types";
 
 export type MiniGraphAverageProps = {};
 
 export type MiniGraphAverageComponent = React.FunctionComponent<MiniGraphAverageProps>;
 
-const MiniGraphAverage: MiniGraphAverageComponent = ({}): JSX.Element => {
+export const MiniGraphAverage: MiniGraphAverageComponent = ({}): JSX.Element => {
     const context = React.useContext(MiniGraphContext);
     const points: Point[] = pointsInContext(context);
 
@@ -29,5 +29,3 @@ const MiniGraphAverage: MiniGraphAverageComponent = ({}): JSX.Element => {
         />
     );
 };
-
-export default MiniGraphAverage;

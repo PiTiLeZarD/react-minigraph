@@ -1,10 +1,10 @@
-import React from "react";
 import chroma from "chroma-js";
+import React from "react";
 
-import MiniGraphContext from "./MiniGraphContext";
+import { MiniGraphContext } from "./MiniGraphContext";
+import { Point } from "./types";
 import { pointsInContext } from "./utils/dataTransform";
 import { normPoints } from "./utils/norm";
-import { Point } from "./types";
 
 export type MiniGraphNormalBandProps = {
     opacity?: number;
@@ -12,7 +12,7 @@ export type MiniGraphNormalBandProps = {
 
 export type MiniGraphNormalBandComponent = React.FunctionComponent<MiniGraphNormalBandProps>;
 
-const MiniGraphNormalBand: MiniGraphNormalBandComponent = ({ opacity = 0.2 }): JSX.Element => {
+export const MiniGraphNormalBand: MiniGraphNormalBandComponent = ({ opacity = 0.2 }): JSX.Element => {
     const context = React.useContext(MiniGraphContext);
     const points: Point[] = pointsInContext(context);
 
@@ -31,5 +31,3 @@ const MiniGraphNormalBand: MiniGraphNormalBandComponent = ({ opacity = 0.2 }): J
         />
     );
 };
-
-export default MiniGraphNormalBand;

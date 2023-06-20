@@ -1,8 +1,8 @@
 import React from "react";
 
-import MiniGraphContext from "./MiniGraphContext";
-import { pointsInContext } from "./utils/dataTransform";
+import { MiniGraphContext } from "./MiniGraphContext";
 import { Point } from "./types";
+import { pointsInContext } from "./utils/dataTransform";
 import maxY from "./utils/maxY";
 
 export type MiniGraphGridProps = {
@@ -12,7 +12,7 @@ export type MiniGraphGridProps = {
 
 export type MiniGraphGridComponent = React.FunctionComponent<MiniGraphGridProps>;
 
-const MiniGraphGrid: MiniGraphGridComponent = ({ mode = "horizontal", every }): JSX.Element => {
+export const MiniGraphGrid: MiniGraphGridComponent = ({ mode = "horizontal", every }): JSX.Element => {
     const context = React.useContext(MiniGraphContext);
     const points: Point[] = pointsInContext(context);
 
@@ -41,5 +41,3 @@ const MiniGraphGrid: MiniGraphGridComponent = ({ mode = "horizontal", every }): 
         </React.Fragment>
     );
 };
-
-export default MiniGraphGrid;

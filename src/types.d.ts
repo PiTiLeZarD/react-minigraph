@@ -5,16 +5,8 @@ export type Point = {
 
 export type SvgPathCommandFn = (point: Point, indx?: number, points?: Point[]) => string;
 
-export { default as MiniGraph, MiniGraphProps, MiniGraphComponent } from "./MiniGraph";
-export { default as MiniGraphLines, MiniGraphLinesProps, MiniGraphLinesComponent } from "./MiniGraphLines";
-export { default as MiniGraphAverage, MiniGraphAverageProps, MiniGraphAverageComponent } from "./MiniGraphAverage";
-export {
-    default as MiniGraphVerticalBars,
-    MiniGraphVerticalBarsProps,
-    MiniGraphVerticalBarsComponent,
-} from "./MiniGraphVerticalBars";
-export {
-    default as MiniGraphNormalBand,
-    MiniGraphNormalBandProps,
-    MiniGraphNormalBandComponent,
-} from "./MiniGraphNormalBand";
+export type { MiniGraphComponent, MiniGraphProps } from "./MiniGraph";
+export type { MiniGraphAverageComponent, MiniGraphAverageProps } from "./MiniGraphAverage";
+export type { MiniGraphLinesComponent, MiniGraphLinesProps } from "./MiniGraphLines";
+export type { MiniGraphNormalBandComponent, MiniGraphNormalBandProps } from "./MiniGraphNormalBand";
+export type { MiniGraphVerticalBarsComponent, MiniGraphVerticalBarsProps } from "./MiniGraphVerticalBars";

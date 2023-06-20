@@ -1,7 +1,7 @@
-import React from "react";
 import chroma from "chroma-js";
+import React from "react";
 
-import MiniGraphContext from "./MiniGraphContext";
+import { MiniGraphContext } from "./MiniGraphContext";
 import { dataToPoints } from "./utils/dataTransform";
 import useRect from "./utils/useRect";
 
@@ -12,7 +12,7 @@ export type MiniGraphProps = {
 
 export type MiniGraphComponent = React.FunctionComponent<React.PropsWithChildren<MiniGraphProps>>;
 
-const MiniGraph: MiniGraphComponent = ({ data, colour = chroma.random().hex(), children }): JSX.Element => {
+export const MiniGraph: MiniGraphComponent = ({ data, colour = chroma.random().hex(), children }): JSX.Element => {
     const ref = React.useRef<HTMLDivElement | null>(null);
     const rect: DOMRect | undefined = useRect<HTMLDivElement>(ref);
 
@@ -33,5 +33,3 @@ const MiniGraph: MiniGraphComponent = ({ data, colour = chroma.random().hex(), c
         </div>
     );
 };
-
-export default MiniGraph;

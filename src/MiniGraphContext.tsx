@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Point } from "./types";
 
 export type MiniGraphContextType = {
@@ -7,6 +8,4 @@ export type MiniGraphContextType = {
     colour: string;
 };
 
-const MiniGraphContext = React.createContext<MiniGraphContextType>({ points: [], colour: "" });
-
-export default MiniGraphContext;
+export const MiniGraphContext = React.createContext<MiniGraphContextType>({ points: [], colour: "" });

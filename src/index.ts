@@ -1,14 +1,10 @@
-export { default as MiniGraph, MiniGraphProps, MiniGraphComponent } from "./MiniGraph";
-export { default as MiniGraphLines, MiniGraphLinesProps, MiniGraphLinesComponent } from "./MiniGraphLines";
-export { default as MiniGraphAverage, MiniGraphAverageProps, MiniGraphAverageComponent } from "./MiniGraphAverage";
+export { MiniGraph, MiniGraphComponent, MiniGraphProps } from "./MiniGraph";
+export { MiniGraphAverage, MiniGraphAverageComponent, MiniGraphAverageProps } from "./MiniGraphAverage";
+export { MiniGraphGrid, MiniGraphGridComponent, MiniGraphGridProps } from "./MiniGraphGrid";
+export { MiniGraphLines, MiniGraphLinesComponent, MiniGraphLinesProps } from "./MiniGraphLines";
+export { MiniGraphNormalBand, MiniGraphNormalBandComponent, MiniGraphNormalBandProps } from "./MiniGraphNormalBand";
 export {
-    default as MiniGraphVerticalBars,
-    MiniGraphVerticalBarsProps,
+    MiniGraphVerticalBars,
     MiniGraphVerticalBarsComponent,
+    MiniGraphVerticalBarsProps,
 } from "./MiniGraphVerticalBars";
-export {
-    default as MiniGraphNormalBand,
-    MiniGraphNormalBandProps,
-    MiniGraphNormalBandComponent,
-} from "./MiniGraphNormalBand";
-export { default as MiniGraphGrid, MiniGraphGridProps, MiniGraphGridComponent } from "./MiniGraphGrid";

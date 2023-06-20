@@ -1,9 +1,10 @@
 import React from "react";
-import MiniGraphContext from "./MiniGraphContext";
+
+import { MiniGraphContext } from "./MiniGraphContext";
 import { Point } from "./types";
-import { pointsInContext } from "./utils/dataTransform";
-import svgPath, { line, bezier, steps } from "./utils/svgPath";
 import { getFill } from "./utils/colours";
+import { pointsInContext } from "./utils/dataTransform";
+import svgPath, { bezier, line, steps } from "./utils/svgPath";
 
 export type MiniGraphLinesProps = {
     filled?: boolean;
@@ -12,7 +13,7 @@ export type MiniGraphLinesProps = {
 
 export type MiniGraphLinesComponent = React.FunctionComponent<MiniGraphLinesProps>;
 
-const MiniGraphLines: MiniGraphLinesComponent = ({ mode, filled = false }): JSX.Element => {
+export const MiniGraphLines: MiniGraphLinesComponent = ({ mode, filled = false }): JSX.Element => {
     const context = React.useContext(MiniGraphContext);
     const points: Point[] = pointsInContext(context);
 
@@ -33,5 +34,3 @@ const MiniGraphLines: MiniGraphLinesComponent = ({ mode, filled = false }): JSX.
         </g>
     );
 };
-
-export default MiniGraphLines;
